@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="/site/assets/css/connect.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h1 class="login-title">Welcome!</h1>
+            <form class="login-form" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Mail</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+            <button class="switch-to-register" onclick="toggleForm()">Register</button>
+        </div>
+        <div class="register-container">
+            <h2 class="register-title">Register</h2>
+            <form class="register-form" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="register-button">Register</button>
+            </form>
+            <button class="switch-to-login" onclick="toggleForm()">Back to Login</button>
+        </div>
+    </div>
+    <script src="/backend/connect.js"></script>
+</body>
+</html>
