@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #fff, #000);
+    background: linear-gradient(to right, #fff, #000); /* Dégradé horizontal de blanc à noir */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,11 +20,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+/* On utilise ici des transitions verticales */
 .login-container,
 .register-container {
     position: absolute;
@@ -38,31 +36,31 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.5s ease;
-}   
+}
 
 .login-container {
-    transform: translateX(0);
+    transform: translateY(0);
     z-index: 2;
 }
 
 .register-container {
-    transform: translateX(100%);
+    transform: translateY(100%);  /* Positionné en dessous (caché) */
     z-index: 1;
 }
 
+/* Quand la classe active est présente, le login remonte et le register devient visible */
 .container.active .login-container {
-    transform: translateX(-100%);
+    transform: translateY(-100%);
 }
 
 .container.active .register-container {
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .login-title,
 .register-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #fff;
     text-align: center;
 }
 
@@ -102,10 +100,6 @@ input {
 input:focus {
     border-color: #007bff;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-}
-
-input:focus + label {
-    color: #007bff;
 }
 
 .login-button,

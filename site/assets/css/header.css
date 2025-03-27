@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.site-header {
+    display: flex;
+    justify-content: flex-start; 
+    padding: 1rem 2rem;
+    background: #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.header-btn {
+    padding: 1rem 2rem;  /* Boutons plus gros */
+    font-size: 1.1rem;   /* Taille de police augmentée */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #000; 
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.header-btn:hover {
+    background: #0056b3;
+}
+
+.header-btn.connect-btn {
+    margin-left: auto;
+}
