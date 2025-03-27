@@ -7,7 +7,6 @@ router.get("/car/:id", controllers.getCar);
 router.get("/bran/:id", controllers.getBrand);
 router.get("/profil/:id", controllers.getProfil);
 router.get("/connect", controllers.getConnect);
-router.get("/register", controllers.getRegister);
 
 
-moodule.exports = router
+module.exports = router

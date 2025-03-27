@@ -2,7 +2,7 @@
 
 exports.getAccueil = async(req, res) => {
 
-    res.render('accueil', nil);
+    res.render('accueil');
 }
 
 exports.getCar = async(req, res) => {
