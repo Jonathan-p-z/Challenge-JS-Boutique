@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
 const app = express();
+<<<<<<< HEAD
 const routes = require('./routes/route.js');
 
 mongoose.connect('mongodb://localhost:27017/boutique', {
@@ -13,6 +13,10 @@ mongoose.connect('mongodb://localhost:27017/boutique', {
 }).catch((err) => {
     console.error('Erreur de connexion à MongoDB :', err);
 });
+=======
+
+const routes = require('./routes/routes.js');
+>>>>>>> 9a6335e32e027831d316082e2d448febbc38fcf2
 
 app.set('views', path.join(__dirname, '../site/views'));
 app.set('view engine', 'ejs');
