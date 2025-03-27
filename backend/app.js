@@ -2,10 +2,8 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
-
 const routes = require('./routes/route.js');
 
-// Configuration de la connexion à MongoDB
 mongoose.connect('mongodb://localhost:27017/boutique', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
