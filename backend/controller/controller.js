@@ -2,7 +2,7 @@
 
 exports.getAccueil = async(req, res) => {
 
-    res.render('accueil');
+    res.render('accueil', nil);
 }
 
 exports.getCar = async(req, res) => {
@@ -19,8 +19,5 @@ exports.getProfil = async(reqq, res) => {
 
 exports.getConnect = async(req, res) => {
 
-}
-
-exports.getRegister = async(req, res) => {
-    
+    res.render('connect', nil);
 }
