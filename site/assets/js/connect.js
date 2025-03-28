@@ -1,29 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loginContainer = document.querySelector('.login-container');
+    const registerContainer = document.querySelector('.register-container');
     if (loginContainer) {
         loginContainer.classList.add('visible');
     }
-    const registerContainer = document.querySelector('.register-container');
     if (registerContainer) {
         registerContainer.classList.add('visible');
     }
 });
 
+function toggleForm() {
+    const container = document.querySelector('.container');
+    if (container) {
+        container.classList.toggle('active');
+        console.log("Toggle active state on container");
+    } else {
+        console.error("Element .container introuvable");
+    }
+}
+
 document.querySelector('.login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
-
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-
     try {
         const response = await fetch('/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
-
         if (response.ok) {
             const data = await response.json();
             console.log('Connexion réussie:', data);
@@ -37,22 +42,16 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
     }
 });
 
-// Gestion de la soumission du formulaire d'inscription
 document.querySelector('.register-form').addEventListener('submit', async (event) => {
     event.preventDefault();
-
     const email = document.querySelector('#register-email').value;
     const password = document.querySelector('#register-password').value;
-
     try {
         const response = await fetch('/register', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
-
         if (response.ok) {
             const data = await response.json();
             console.log('Inscription réussie:', data);
@@ -64,8 +63,3 @@ document.querySelector('.register-form').addEventListener('submit', async (event
         console.error('Exception lors de l\'inscription:', error);
     }
 });
-
-function toggleForm() {
-    const container = document.querySelector('.container');
-    container.classList.toggle('active');
-}

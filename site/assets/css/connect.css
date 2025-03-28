@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #fff, #000); /* Dégradé horizontal de blanc à noir */
+    background: linear-gradient(to right, #fff, #000);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body {
     background: #111;
 }
 
-/* On utilise ici des transitions verticales */
+/* Les deux formulaires sont placés en absolu avec transition verticale */
 .login-container,
 .register-container {
     position: absolute;
@@ -44,11 +44,12 @@ body {
 }
 
 .register-container {
-    transform: translateY(100%);  /* Positionné en dessous (caché) */
+    transform: translateY(100%);
     z-index: 1;
 }
 
-/* Quand la classe active est présente, le login remonte et le register devient visible */
+/* Lorsque la classe 'active' est appliquée à .container, 
+   le formulaire login se déplace vers le haut et register devient visible */
 .container.active .login-container {
     transform: translateY(-100%);
 }
