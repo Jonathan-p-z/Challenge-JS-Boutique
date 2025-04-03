@@ -19,5 +19,5 @@ exports.getProfil = async(reqq, res) => {
 
 exports.getConnect = async(req, res) => {
 
-    res.render('connect', nil);
+    res.render('connect');
 }
