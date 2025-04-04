@@ -22,12 +22,11 @@ body {
     background: #111;
 }
 
-/* Les deux formulaires sont placés en absolu avec transition verticale */
 .login-container,
 .register-container {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%; 
     width: 80%;
     height: 80%;
     padding: 2rem;
@@ -36,26 +35,40 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.5s ease;
+    align-content: center;
 }
 
 .login-container {
-    transform: translateY(0);
+    transform: translate(-50%, 10%);
     z-index: 2;
 }
 
 .register-container {
-    transform: translateY(100%);
+    transform: translate(-50%, 110%);
     z-index: 1;
+    opacity: 0; 
+    visibility: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Lorsque la classe 'active' est appliquée à .container, 
-   le formulaire login se déplace vers le haut et register devient visible */
 .container.active .login-container {
-    transform: translateY(-100%);
+    transform: translate(-50%, -90%);
 }
 
 .container.active .register-container {
-    transform: translateY(0);
+    transform: translate(-50%, 10%);
+}
+
+.container.active-register .login-container {
+    transform: translate(-50%, -90%); 
+    opacity: 0;  
+    pointer-events: none;
+}
+.container.active-register .register-container {
+    transform: translate(-50%, 10%);
+    z-index: 3;
+    opacity: 1;    
+    visibility: visible;
 }
 
 .login-title,

@@ -9,14 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function toggleForm() {
+function toggleForm(form) {
     const container = document.querySelector('.container');
-    if (container) {
-        container.classList.toggle('active');
-        console.log("Toggle active state on container");
-    } else {
+    if (!container) {
         console.error("Element .container introuvable");
+        return;
     }
+    if (form === 'register') {
+        container.classList.add('active-register');
+    } else if (form === 'login') {
+        container.classList.remove('active-register');
+    }
+    console.log("Active register state:", container.classList.contains('active-register'));
 }
 
 document.querySelector('.login-form').addEventListener('submit', async (event) => {
