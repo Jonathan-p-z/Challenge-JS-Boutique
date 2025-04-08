@@ -1,27 +1,717 @@
 {
     "brandCar": [
         {
-            "Mercedes": [
+            "id": 1,
+            "name": "Renault",
+            "models": [
                 {
                     "electric": [
                         {
-                            "nameCar": "",
-                            "defaultPrix": 9999,
-                            "imgCar": "",
-                            ""
+                            "id": 101,
+                            "nameCar": "Renault Zoe 1",
+                            "defaultPrix": 25000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "zoe_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "zoe_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique R110",
+                            "capacity": 5,
+                            "largeur": 1.73,
+                            "longueur": 4.08,
+                            "capacityBattery": 52,
+                            "consomation": 17,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 600}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 800}
+                            ]
+                        },
+                        {
+                            "id": 102,
+                            "nameCar": "Renault Zoe 2",
+                            "defaultPrix": 26500,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "zoe_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "zoe_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique R110",
+                            "capacity": 5,
+                            "largeur": 1.73,
+                            "longueur": 4.08,
+                            "capacityBattery": 55,
+                            "consomation": 16,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 600}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 800}
+                            ]
                         }
                     ]
                 },
                 {
                     "essence": [
                         {
-
+                            "id": 104,
+                            "nameCar": "Renault Clio 1",
+                            "defaultPrix": 18000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "clio_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "clio_red_medium.jpg"}
+                            ],
+                            "moteur": "1.3L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.79,
+                            "longueur": 4.05,
+                            "capacityEssence": 50,
+                            "consomation": 5.7,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        },
+                        {
+                            "id": 105,
+                            "nameCar": "Renault Clio 2",
+                            "defaultPrix": 19000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "clio_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "clio_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.79,
+                            "longueur": 4.05,
+                            "capacityEssence": 50,
+                            "consomation": 5.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        },
+                        {
+                            "id": 106,
+                            "nameCar": "Renault Clio 3",
+                            "defaultPrix": 20000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "clio_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "clio_red_medium.jpg"}
+                            ],
+                            "moteur": "1.6L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.79,
+                            "longueur": 4.05,
+                            "capacityEssence": 50,
+                            "consomation": 5.3,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
                         }
                     ]
                 },
                 {
                     "diesel": [
-                        
+                        {
+                            "id": 107,
+                            "nameCar": "Renault Kangoo Diesel 1",
+                            "defaultPrix": 27000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "kangoo_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "kangoo_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L Blue dCi Diesel",
+                            "capacity": 5,
+                            "largeur": 1.86,
+                            "longueur": 4.48,
+                            "capacityEssence": 60,
+                            "consomation": 4.9,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1000}
+                            ]
+                        },
+                        {
+                            "id": 108,
+                            "nameCar": "Renault Kangoo Diesel 2",
+                            "defaultPrix": 28000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "kangoo_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "kangoo_red_medium.jpg"}
+                            ],
+                            "moteur": "1.6L Blue dCi Diesel",
+                            "capacity": 5,
+                            "largeur": 1.86,
+                            "longueur": 4.48,
+                            "capacityEssence": 60,
+                            "consomation": 4.7,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1000}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "BMW",
+            "models": [
+                {
+                    "electric": [
+                        {
+                            "id": 301,
+                            "nameCar": "BMW i4 1",
+                            "defaultPrix": 69000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "i4_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "i4_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique eDrive40",
+                            "capacity": 5,
+                            "largeur": 1.85,
+                            "longueur": 4.78,
+                            "capacityBattery": 81,
+                            "consomation": 19,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1300}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1700}
+                            ]
+                        },
+                        {
+                            "id": 302,
+                            "nameCar": "BMW i4 2",
+                            "defaultPrix": 73000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "i4_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "i4_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique eDrive40",
+                            "capacity": 5,
+                            "largeur": 1.85,
+                            "longueur": 4.78,
+                            "capacityBattery": 85,
+                            "consomation": 18,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1300}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1700}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "essence": [
+                        {
+                            "id": 303,
+                            "nameCar": "BMW 3 Series 1",
+                            "defaultPrix": 42000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "bmw3_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "bmw3_red_medium.jpg"}
+                            ],
+                            "moteur": "2.0L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.83,
+                            "longueur": 4.71,
+                            "capacityEssence": 60,
+                            "consomation": 6.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1000}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1200}
+                            ]
+                        },
+                        {
+                            "id": 304,
+                            "nameCar": "BMW 3 Series 2",
+                            "defaultPrix": 46000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "bmw3_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "bmw3_red_medium.jpg"}
+                            ],
+                            "moteur": "2.5L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.83,
+                            "longueur": 4.71,
+                            "capacityEssence": 60,
+                            "consomation": 6.2,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1000}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1200}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "diesel": [
+                        {
+                            "id": 305,
+                            "nameCar": "BMW X5 Diesel 1",
+                            "defaultPrix": 65000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "x5_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "x5_red_medium.jpg"}
+                            ],
+                            "moteur": "3.0L Turbo Diesel",
+                            "capacity": 5,
+                            "largeur": 1.96,
+                            "longueur": 4.92,
+                            "capacityEssence": 80,
+                            "consomation": 7.1,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1800}
+                            ]
+                        },
+                        {
+                            "id": 306,
+                            "nameCar": "BMW X5 Diesel 2",
+                            "defaultPrix": 70000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "x5_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "x5_red_medium.jpg"}
+                            ],
+                            "moteur": "3.0L Turbo Diesel",
+                            "capacity": 5,
+                            "largeur": 1.96,
+                            "longueur": 4.92,
+                            "capacityEssence": 80,
+                            "consomation": 6.8,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1800}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Peugeot",
+            "models": [
+                {
+                    "electric": [
+                        {
+                            "id": 201,
+                            "nameCar": "Peugeot e-208 1",
+                            "defaultPrix": 28000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "e208_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "e208_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique 136 ch",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.05,
+                            "capacityBattery": 50,
+                            "consomation": 17,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1000}
+                            ]
+                        },
+                        {
+                            "id": 202,
+                            "nameCar": "Peugeot e-208 2",
+                            "defaultPrix": 29500,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "e208_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "e208_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique 136 ch",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.05,
+                            "capacityBattery": 55,
+                            "consomation": 16,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1000}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "essence": [
+                        {
+                            "id": 204,
+                            "nameCar": "Peugeot 208 1",
+                            "defaultPrix": 18000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "208_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "208_red_medium.jpg"}
+                            ],
+                            "moteur": "1.2L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.05,
+                            "capacityEssence": 50,
+                            "consomation": 5.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        },
+                        {
+                            "id": 205,
+                            "nameCar": "Peugeot 208 2",
+                            "defaultPrix": 19000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "208_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "208_red_medium.jpg"}
+                            ],
+                            "moteur": "1.2L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.05,
+                            "capacityEssence": 50,
+                            "consomation": 5.4,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "diesel": [
+                        {
+                            "id": 206,
+                            "nameCar": "Peugeot 2008 Diesel 1",
+                            "defaultPrix": 25000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "2008_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "2008_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L BlueHDi Diesel",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.30,
+                            "capacityEssence": 50,
+                            "consomation": 4.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 600}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        },
+                        {
+                            "id": 207,
+                            "nameCar": "Peugeot 2008 Diesel 2",
+                            "defaultPrix": 26000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "2008_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "2008_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L BlueHDi Diesel",
+                            "capacity": 5,
+                            "largeur": 1.75,
+                            "longueur": 4.30,
+                            "capacityEssence": 50,
+                            "consomation": 4.4,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 600}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 700}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Audi",
+            "models": [
+                {
+                    "electric": [
+                        {
+                            "id": 301,
+                            "nameCar": "Audi e-Tron 1",
+                            "defaultPrix": 75000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "etron_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "etron_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique 402 ch",
+                            "capacity": 5,
+                            "largeur": 1.93,
+                            "longueur": 4.90,
+                            "capacityBattery": 95,
+                            "consomation": 22,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1800}
+                            ]
+                        },
+                        {
+                            "id": 302,
+                            "nameCar": "Audi e-Tron 2",
+                            "defaultPrix": 77000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "etron_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "etron_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique 402 ch",
+                            "capacity": 5,
+                            "largeur": 1.93,
+                            "longueur": 4.90,
+                            "capacityBattery": 95,
+                            "consomation": 22,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1800}
+                            ]
+                        },
+                        {
+                            "id": 303,
+                            "nameCar": "Audi e-Tron 3",
+                            "defaultPrix": 79000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "etron_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "etron_red_medium.jpg"}
+                            ],
+                            "moteur": "Électrique 402 ch",
+                            "capacity": 5,
+                            "largeur": 1.93,
+                            "longueur": 4.90,
+                            "capacityBattery": 95,
+                            "consomation": 22,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 1500}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1800}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "essence": [
+                        {
+                            "id": 304,
+                            "nameCar": "Audi A3 1",
+                            "defaultPrix": 25000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a3_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a3_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.34,
+                            "capacityEssence": 50,
+                            "consomation": 5.9,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 900}
+                            ]
+                        },
+                        {
+                            "id": 305,
+                            "nameCar": "Audi A3 2",
+                            "defaultPrix": 26500,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a3_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a3_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.34,
+                            "capacityEssence": 50,
+                            "consomation": 5.7,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 900}
+                            ]
+                        },
+                        {
+                            "id": 306,
+                            "nameCar": "Audi A3 3",
+                            "defaultPrix": 28000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a3_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a3_red_medium.jpg"}
+                            ],
+                            "moteur": "1.5L Turbo Essence",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.34,
+                            "capacityEssence": 50,
+                            "consomation": 5.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 700}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 900}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "diesel": [
+                        {
+                            "id": 307,
+                            "nameCar": "Audi A4 Diesel 1",
+                            "defaultPrix": 35000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a4_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a4_red_medium.jpg"}
+                            ],
+                            "moteur": "2.0L TDI Diesel",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.73,
+                            "capacityEssence": 55,
+                            "consomation": 4.5,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 800}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1200}
+                            ]
+                        },
+                        {
+                            "id": 308,
+                            "nameCar": "Audi A4 Diesel 2",
+                            "defaultPrix": 37500,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a4_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a4_red_medium.jpg"}
+                            ],
+                            "moteur": "2.0L TDI Diesel",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.73,
+                            "capacityEssence": 55,
+                            "consomation": 4.3,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 800}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1200}
+                            ]
+                        },
+                        {
+                            "id": 309,
+                            "nameCar": "Audi A4 Diesel 3",
+                            "defaultPrix": 40000,
+                            "imgCar": [
+                                {"imgCar_color_typeRoue": "a4_blue_normal.jpg"},
+                                {"imgCar_color_typeRoue": "a4_red_medium.jpg"}
+                            ],
+                            "moteur": "2.0L TDI Diesel",
+                            "capacity": 5,
+                            "largeur": 1.80,
+                            "longueur": 4.73,
+                            "capacityEssence": 55,
+                            "consomation": 4.1,
+                            "colors": [
+                                {"color": "blue", "ajoutPrix": 0},
+                                {"color": "red", "ajoutPrix": 800}
+                            ],
+                            "roues": [
+                                {"typeRoue": "normal", "ajoutPrix": 0},
+                                {"typeRoue": "medium", "ajoutPrix": 1200}
+                            ]
+                        }
                     ]
                 }
             ]
