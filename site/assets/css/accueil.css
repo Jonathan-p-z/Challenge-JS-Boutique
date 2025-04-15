@@ -45,9 +45,11 @@
     padding: 2rem;
     margin-top: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
+
 
 .car-btn {
     padding: 0.8rem 1.5rem;
@@ -63,4 +65,16 @@
 .car-btn:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.car-images {
+    display: flex;
+    gap: 5rem;
+    margin-top: 1rem;
+}
+
+.car-images img {
+    width: 550px;
+    max-width: 100%;
+    border-radius: 12px;
 }

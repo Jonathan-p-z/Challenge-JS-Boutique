@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <% if(id == "1") { %>
+            Renault
+        <% } else if(id == "2") { %>
+            BMW
+        <% } else if(id == "4") { %>
+            Audi
+        <% } else { %>
+            Marque inconnue
+        <% } %>
+    </title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+</head>
+<body class="<%= id == '4' ? 'audi-page' : '' %>">
+    <%- include('../partials/header'); %>
+    <% if(id == "1") { %>
+        <h1>Page de la marque : Renault</h1>
+        <p>Renault est un constructeur automobile français fondé en 1899.</p>
+        <img src="../assets/img/marques/renault.png" alt="Renault" style="max-width:200px;">
+    <% } else if(id == "2") { %>
+        <h1>Page de la marque : BMW</h1>
+        <p>BMW est un constructeur automobile allemand réputé pour ses voitures sportives.</p>
+        <img src="../assets/img/marques/bmw.png" alt="BMW" style="max-width:200px;">
+    <% } else if(id == "4") { %>
+        <h1>Page de la marque : Audi</h1>
+        <p>Audi est un constructeur automobile allemand connu pour son design et sa technologie.</p>
+        <img src="../assets/img/marques/audi.png" alt="Audi" style="max-width:200px;">
+    <% } else { %>
+        <h1>Marque inconnue</h1>
+    <% } %>
+    <button onclick="window.history.back()">Retour</button>
+    <%- include('../partials/footer'); %>
+</body>
+</html>
