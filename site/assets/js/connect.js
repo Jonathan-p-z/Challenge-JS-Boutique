@@ -57,7 +57,7 @@ document.querySelector('.register-form').addEventListener('submit', async (event
             body: JSON.stringify({ email, password })
         });
         if (response.ok) {
-            const data = await response.json();
+            const data = await response.json().catch(() => null);
             console.log('Inscription réussie:', data);
         } else {
             const errorText = await response.text();

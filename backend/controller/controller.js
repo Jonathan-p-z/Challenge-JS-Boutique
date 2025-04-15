@@ -28,15 +28,16 @@ exports.getConnect = async(req, res) => {
 }
 
 exports.setLogin = async (req, res) => {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-
-
+    const {email, password} = req.body;
+    console.log("login");
+    console.log(email);
+    console.log(password);
 }
 
 exports.setRegister = async (req, res) => {
     const {email, password} = req.body;
-
-    console.log(email);
-    console.log(password);
+    console.log("register");
+    listIdentifiant.push({email, mdp: password});
+    console.log(listIdentifiant);
+    res.json({message: "Accompt create : ", listIdentifiant});
 }
