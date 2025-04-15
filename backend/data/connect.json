@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "email": "toto@gmail.com",
+    "mdp": "TOTO"
+  }
+]

@@ -36,7 +36,7 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
         if (response.ok) {
             const data = await response.json();
             console.log('Connexion réussie:', data);
-            localStorage.setItem('loginData', JSON.stringify(data));
+            window.location.href = '/accueil'; // redirection manuelle depuis JS
         } else {
             const errorText = await response.text();
             console.error('Erreur lors de la connexion:', errorText);
