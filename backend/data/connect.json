@@ -1,6 +1,26 @@
 [
   {
+    "id": "e1cafddc-5910-4f17-87bf-c7ff1404686f",
     "email": "toto@gmail.com",
-    "mdp": "TOTO"
+    "mdp": "TOTO",
+    "wishlist": [],
+    "cart": [],
+    "addresses": []
+  },
+  {
+    "id": "c5610919-a7b7-497d-b8a2-abd040de7955",
+    "email": "toto.titi@gmail.com",
+    "mdp": "TOTO",
+    "wishlist": [],
+    "cart": [],
+    "addresses": []
+  },
+  {
+    "id": "ad2e7bad-b4e0-4cec-913d-8d6b7b5acbb0",
+    "email": "titi@gmail.com",
+    "mdp": "TOTO",
+    "wishlist": [],
+    "cart": [],
+    "addresses": []
   }
 ]
