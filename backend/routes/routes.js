@@ -9,6 +9,7 @@ router.get("/brand/:id", controllers.getBrand);
 router.get("/profil", controllers.getProfil);
 router.get("/connect", controllers.getConnect);
 router.get("/logout", controllers.logout);
+router.get("/panier", controllers.getPanier);
 
 // Auth
 router.post("/login", controllers.setLogin);
@@ -16,6 +17,7 @@ router.post("/register", controllers.setRegister);
 
 // Wishlist
 router.post("/wishlist/toggle", controllers.toggleWishlist);
+
 
 // Cart
 router.post("/cart/add", controllers.addToCart);

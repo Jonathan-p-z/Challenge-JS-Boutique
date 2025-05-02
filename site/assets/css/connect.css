@@ -26,7 +26,7 @@ body {
 .register-container {
     position: absolute;
     top: 0;
-    left: 50%; 
+    left: 50%;
     width: 80%;
     height: 80%;
     padding: 2rem;
@@ -34,7 +34,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
     align-content: center;
 }
 
@@ -46,9 +46,8 @@ body {
 .register-container {
     transform: translate(-50%, 110%);
     z-index: 1;
-    opacity: 0; 
+    opacity: 0;
     visibility: hidden;
-    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .container.active .login-container {
@@ -60,14 +59,15 @@ body {
 }
 
 .container.active-register .login-container {
-    transform: translate(-50%, -90%); 
-    opacity: 0;  
+    transform: translate(-50%, -90%);
+    opacity: 0;
     pointer-events: none;
 }
+
 .container.active-register .register-container {
     transform: translate(-50%, 10%);
     z-index: 3;
-    opacity: 1;    
+    opacity: 1;
     visibility: visible;
 }
 
@@ -159,4 +159,60 @@ input:focus {
 .switch-to-login:hover {
     background: #007bff;
     color: #fff;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        height: auto;
+        min-height: 500px;
+    }
+
+    .login-container,
+    .register-container {
+        width: 90%;
+        height: auto;
+        padding: 1.5rem;
+        transform: translate(-50%, 10%);
+    }
+
+    .container.active .login-container,
+    .container.active-register .login-container {
+        transform: translate(-50%, -90%);
+    }
+
+    .container.active .register-container,
+    .container.active-register .register-container {
+        transform: translate(-50%, 10%);
+    }
+
+    .login-title,
+    .register-title {
+        font-size: 1.5rem;
+    }
+
+    input,
+    .login-button,
+    .register-button,
+    .switch-to-register,
+    .switch-to-login {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-title,
+    .register-title {
+        font-size: 1.2rem;
+    }
+
+    input,
+    .login-button,
+    .register-button,
+    .switch-to-register,
+    .switch-to-login {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
 }

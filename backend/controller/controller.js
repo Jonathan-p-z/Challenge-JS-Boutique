@@ -27,7 +27,9 @@ function updateSessionUser(session, user) {
     session.user = {
         id: user.id,
         email: user.email,
-        wishlist: user.wishlist
+        wishlist: user.wishlist,
+        cart: user.cart || [],
+        addresses: user.addresses || []
     };
 }
 
@@ -162,7 +164,6 @@ exports.setLogin = async (req, res) => {
         }
 
         updateSessionUser(req.session, user);
-
         res.status(200).json({ message: "Connexion réussie", connect: true, user });
     } catch (error) {
         res.status(500).json({ message: "Erreur serveur lors de la connexion." });
@@ -235,13 +236,162 @@ exports.toggleWishlist = async (req, res) => {
 // Panier
 
 exports.addToCart = (req, res) => {
-    res.status(501).json({ message: "addToCart non implémenté." });
+    if (!req.session.user) {
+        return res.status(401).json({ message: "Non autorisé." });
+    }
+
+    const { carId, quantity } = req.body;
+    const users = readJSON(filePath);
+    const user = users.find(u => u.id === req.session.user.id);
+
+    if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+    }
+
+    const item = user.cart.find(item => item.carId === carId);
+    if (item) {
+        item.quantity += quantity;
+    } else {
+        user.cart.push({ carId, quantity });
+    }
+
+    writeJSON(filePath, users);
+    updateSessionUser(req.session, user);
+
+    res.status(200).json({ message: "Ajouté au panier.", cart: user.cart });
 };
 
 exports.updateCart = (req, res) => {
-    res.status(501).json({ message: "updateCart non implémenté." });
+    if (!req.session.user) {
+        return res.status(401).json({ message: "Non autorisé." });
+    }
+
+    const { carId, quantity } = req.body;
+    const users = readJSON(filePath);
+    const user = users.find(u => u.id === req.session.user.id);
+
+    if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+    }
+
+    const item = user.cart.find(item => item.carId === carId);
+    if (item) {
+        item.quantity = quantity;
+    }
+
+    writeJSON(filePath, users);
+    updateSessionUser(req.session, user);
+
+    res.status(200).json({ message: "Panier mis à jour.", cart: user.cart });
 };
 
 exports.removeFromCart = (req, res) => {
-    res.status(501).json({ message: "removeFromCart non implémenté." });
+    if (!req.session.user) {
+        return res.status(401).json({ message: "Non autorisé." });
+    }
+
+    const { carId } = req.body;
+    const users = readJSON(filePath);
+    const user = users.find(u => u.id === req.session.user.id);
+
+    if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+    }
+
+    user.cart = user.cart.filter(item => item.carId !== carId);
+
+    writeJSON(filePath, users);
+    updateSessionUser(req.session, user);
+
+    res.status(200).json({ message: "Article retiré du panier.", cart: user.cart });
+};
+
+exports.getPanier = (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/connect');
+    }
+
+    const user = getCurrentUser(req.session);
+    const brandCarData = readJSON(brandCarPath);
+
+    const panier = user.cart.map(item => {
+        let foundCar = null;
+
+        for (const brand in brandCarData) {
+            for (const carName in brandCarData[brand]) {
+                const car = brandCarData[brand][carName];
+                if (car.id.toString() === item.carId.toString()) {
+                    foundCar = {
+                        id: car.id,
+                        nom: carName.replace('_', ' '),
+                        prix: car.prix,
+                        quantity: item.quantity
+                    };
+                    break;
+                }
+            }
+            if (foundCar) break;
+        }
+
+        return foundCar;
+    }).filter(item => item); // en cas d'erreur de correspondance
+
+    const total = panier.reduce((acc, item) => acc + (item.prix * item.quantity), 0);
+
+    res.render('panier', { panier, total });
+};
+
+exports.toggleWishlist = async (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ message: "Non autorisé." });
+    }
+
+    const { carId } = req.body;
+    const brandCarData = readJSON(brandCarPath);
+    const users = readJSON(filePath);
+    const user = users.find(u => u.id === req.session.user.id);
+
+    if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+    }
+
+    // Rechercher la voiture dans brandCar.json
+    let foundCar = null;
+    for (const brand in brandCarData) {
+        for (const carName in brandCarData[brand]) {
+            const car = brandCarData[brand][carName];
+            if (car.id.toString() === carId.toString()) {
+                foundCar = {
+                    id: car.id,
+                    nom: carName.replace('_', ' '),
+                    prix: car.prix,
+                    imageUrl: car.imageUrl
+                };
+                break;
+            }
+        }
+        if (foundCar) break;
+    }
+
+    if (!foundCar) {
+        return res.status(404).json({ message: "Voiture introuvable." });
+    }
+
+    const index = user.favoris?.findIndex(f => f.id.toString() === carId.toString()) ?? -1;
+
+    if (index !== -1) {
+        // Supprime si déjà en favoris
+        user.favoris.splice(index, 1);
+        var isFavorite = false;
+    } else {
+        // Ajoute sinon
+        if (!user.favoris) user.favoris = [];
+        user.favoris.push(foundCar);
+        var isFavorite = true;
+    }
+
+    writeJSON(filePath, users);
+    updateSessionUser(req.session, user);
+
+    res.status(200).json({ message: "Favoris mis à jour.", isFavorite });
 };

@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>
-        <% if(id == "1") { %>
-            Renault
-        <% } else if(id == "2") { %>
-            BMW
-        <% } else if(id == "4") { %>
-            Audi
-        <% } else { %>
-            Marque inconnue
-        <% } %>
-    </title>
-    <link rel="stylesheet" href="../assets/css/header.css">
+  <meta charset="UTF-8">
+  <title>Marque - <%= marque %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
 </head>
-<body class="<%= id == '4' ? 'audi-page' : '' %>">
-    <%- include('../partials/header'); %>
-    <% if(id == "1") { %>
-        <h1>Page de la marque : Renault</h1>
-        <p>Renault est un constructeur automobile français fondé en 1899.</p>
-        <img src="../assets/img/marques/renault.png" alt="Renault" style="max-width:200px;">
-    <% } else if(id == "2") { %>
-        <h1>Page de la marque : BMW</h1>
-        <p>BMW est un constructeur automobile allemand réputé pour ses voitures sportives.</p>
-        <img src="../assets/img/marques/bmw.png" alt="BMW" style="max-width:200px;">
-    <% } else if(id == "4") { %>
-        <h1>Page de la marque : Audi</h1>
-        <p>Audi est un constructeur automobile allemand connu pour son design et sa technologie.</p>
-        <img src="../assets/img/marques/audi.png" alt="Audi" style="max-width:200px;">
-    <% } else { %>
-        <h1>Marque inconnue</h1>
-    <% } %>
-    <button onclick="window.history.back()">Retour</button>
-    <%- include('../partials/footer'); %>
+<body>
+
+<header>
+  <h1>Modèles de la marque <%= marque %></h1>
+</header>
+
+<section class="products-grid">
+  <% cars.forEach(car => { %>
+    <div class="card">
+      <img src="<%= car.images[0] %>" onmouseover="this.src='<%= car.images[1] %>'" onmouseout="this.src='<%= car.images[0] %>'">
+      <p><%= car.nom %></p>
+      <p><%= car.prix %>€</p>
+      <% if (car.promo) { %>
+        <span class="promo">-<%= car.promo %>%</span>
+      <% } %>
+      <a href="/car/<%= car.id %>">Voir détails</a>
+    </div>
+  <% }); %>
+</section>
+
 </body>
 </html>

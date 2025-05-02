@@ -1,13 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= car.nom %></title>
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/produit.css">
 </head>
+
 <body>
-    <%- include('../partials/header'); %>
-    <h1>product</h1>
-    <%- include('../partials/footer'); %>
+    <%- include('../partials/header', { connect: connect }) %>
+
+    <main class="produit-container">
+        <div class="produit-info">
+            <img src="<%= car.imageUrl %>" alt="<%= car.nom %>">
+            <h1><%= car.nom %></h1>
+            <p>Prix : <%= car.prix %> €</p>
+            <p>Promo : <%= car.promo %>%</p>
+            <p>Stock : <%= car.stock %></p>
+
+            <div class="produit-actions">
+                <% const isFavorite = user && user.wishlist.includes(car.id.toString()); %>
+                <button class="card-btn like" data-car-id="<%= car.id %>">
+                    <%= isFavorite ? "❤️" : "🤍" %>
+                </button>
+                <button class="add-cart-btn">Ajouter au panier 🛒</button>
+            </div>
+        </div>
+
+        <!-- Section similaires -->
+        <section class="similar-cars">
+            <h2>Voitures Similaires</h2>
+            <div class="similar-cars-list">
+                <% similar.forEach(car => { %>
+                    <a href="/car/<%= car.id %>" class="similar-car-card">
+                        <img src="<%= car.imageUrl %>" alt="<%= car.nom %>">
+                        <h3><%= car.nom %></h3>
+                        <p><%= car.prix %> €</p>
+                    </a>
+                <% }) %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script>
+        const likeBtn = document.querySelector('.like');
+
+        likeBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const carId = likeBtn.getAttribute('data-car-id');
+
+            await fetch('/wishlist/toggle', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ carId })
+            });
+
+            likeBtn.innerText = likeBtn.innerText === '🤍' ? '❤️' : '🤍';
+        });
+    </script>
+    <script src="/assets/js/like.js"></script>
 </body>
 </html>

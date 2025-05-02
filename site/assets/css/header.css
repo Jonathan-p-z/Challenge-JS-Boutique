@@ -1,103 +1,67 @@
+/* Font globale */
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
-.site-header {
-    display: flex;
-    justify-content: flex-start; 
+/* Header */
+header {
+    background-color: #007bff;
     padding: 1rem 2rem;
-    background: #000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.site-header img {
-    max-width: 100px;
-}
-
-.header-buttons {
+    color: white;
     display: flex;
-    gap: 1rem;
-    margin-left: auto;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #0056b3;
 }
 
-.header-btn {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #000; 
-    color: #fff;
-    transition: background 0.3s ease;
-}
-
-.header-btn:hover {
-    background: #0056b3;
-}
-
-.header-nav {
-    margin-left: 2rem;
+/* Logo */
+.logo {
     display: flex;
     align-items: center;
 }
 
-.header-center {
-    flex: 1;
+.logo img {
+    width: 120px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Navbar */
+.navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 1.5rem;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #fff;
-    min-width: 140px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    z-index: 10;
-    border-radius: 5px;
-    margin-top: 0.5rem;
-    overflow: hidden;
-}
-
-.dropdown-menu a {
-    color: #000;
-    padding: 0.75rem 1.2rem;
+.navbar a {
+    color: white;
     text-decoration: none;
-    display: block;
-    transition: background 0.2s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-.dropdown-menu a:hover {
-    background: #f0f0f0;
+/* Ligne animée sous lien */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-    display: block;
+/* Hover effets */
+.navbar a:hover {
+    color: #d9ecff;
 }
 
-.audi-page {
-    background: linear-gradient(135deg, #232526 0%, #414345 100%);
-    color: #fff;
-    min-height: 100vh;
-}
-
-.audi-page h1 {
-    color: #d1001f;
-    letter-spacing: 2px;
-}
-
-.audi-page img {
-    border: 4px solid #d1001f;
-    border-radius: 12px;
-    background: #fff;
-    padding: 10px;
+.navbar a:hover::after {
+    width: 100%;
 }

@@ -1,48 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/accueil.css">
 </head>
-<body>
-    <%- include('../partials/header'); %>
+
+<body class="accueil-page">
+    <%- include('../partials/header', { connect: connect }) %>
+
     <div class="content-container">
-        <div class="search-container">
-            <input type="search" placeholder="Rechercher..." class="search-input">
-            <div class="search-buttons">
-                <button class="search-btn type-btn">Type</button>
-                <button class="search-btn prix-btn">Prix</button>
+        <% for (const brand in brandCarData) { %>
+            <div class="brand-section">
+                <div class="brand-title"><%= brand %></div>
+                <div class="car-grid">
+                    <% for (const carName in brandCarData[brand]) { 
+                        const car = brandCarData[brand][carName]; 
+                        const isFavorite = user && user.wishlist.includes(car.id.toString());
+                    %>
+                        <div class="car-card" data-id="<%= car.id %>">
+                            <a href="/car/<%= car.id %>">
+                                <img src="<%= car.imageUrl %>" alt="Image <%= carName %>">
+                                <div class="car-name"><%= carName.replace('_', ' ') %></div>
+                                <div class="car-price"><%= car.prix %> € -<%= car.promo %>%</div>
+                                <div class="car-stock">Stock: <%= car.stock %></div>
+                            </a>
+                            <div class="card-actions">
+                                <button class="card-btn like" data-car-id="<%= car.id %>">
+                                    <%= isFavorite ? "❤️" : "🤍" %>
+                                </button>
+                                <button class="card-btn cart" data-car-id="<%= car.id %>" title="Ajouter au panier">
+                                    🛒
+                                </button>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
             </div>
-        </div>
+        <% } %>
     </div>
-    <div class="car-container">
-        <button class="car-btn">Type Voiture</button>
-        <div class="car-images" id="car-images">
-            <img src="../assets/img/voiture/renault_zoe_1/zoe_1_white_medium.png" alt="Renault Zoe 1 - Rouge Medium" style="width: 100%; max-width: 300px;">
-        </div>
-    </div>
-    <div class="car-container">
-        <button class="car-btn">Type Voiture</button>
-        <div class="car-images" id="car-images">
-            <img src="../assets/img/voiture/renault_zoe_1/zoe_1_white_medium.png" alt="Renault Zoe 1 - Rouge Medium" style="width: 100%; max-width: 300px;">
-        </div>
-    </div>
-    <div class="car-container">
-        <button class="car-btn">Type Voiture</button>
-        <div class="car-images" id="car-images">
-            <img src="../assets/img/voiture/renault_zoe_1/zoe_1_white_medium.png" alt="Renault Zoe 1 - Rouge Medium" style="width: 100%; max-width: 300px;">
-        </div>
-    </div>
-    <div class="car-container">
-        <button class="car-btn">Type Voiture</button>
-        <div class="car-images" id="car-images">
-            <img src="../assets/img/voiture/renault_zoe_1/zoe_1_white_medium.png" alt="Renault Zoe 1 - Rouge Medium" style="width: 100%; max-width: 300px;">
-        </div>
-    </div>
-    <%- include('../partials/footer'); %>
+
+    <%- include('../partials/footer') %>
+
+    <!-- Scripts -->
+    <script>
+        // Bouton LIKE ❤️
+        document.querySelectorAll('.like').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const carId = btn.getAttribute('data-car-id');
+
+                try {
+                    const res = await fetch('/wishlist/toggle', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ carId })
+                    });
+
+                    const result = await res.json();
+
+                    if (res.ok) {
+                        btn.innerText = result.isFavorite ? '❤️' : '🤍';
+                    } else {
+                        alert(result.message || "Erreur lors de la mise à jour des favoris.");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Erreur réseau.");
+                }
+            });
+        });
+
+        // Bouton PANIER 🛒
+        document.querySelectorAll('.cart').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const carId = btn.getAttribute('data-car-id');
+
+                try {
+                    const res = await fetch('/cart/add', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ carId, quantity: 1 })
+                    });
+
+                    const result = await res.json();
+
+                    if (res.ok) {
+                        alert("Ajouté au panier !");
+                    } else {
+                        alert(result.message || "Erreur lors de l'ajout au panier.");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Erreur réseau.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

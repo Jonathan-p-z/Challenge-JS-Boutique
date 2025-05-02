@@ -3,8 +3,21 @@
     "id": "e1cafddc-5910-4f17-87bf-c7ff1404686f",
     "email": "toto@gmail.com",
     "mdp": "TOTO",
-    "wishlist": [],
-    "cart": [],
+    "wishlist": [
+      "392",
+      "391",
+      "393"
+    ],
+    "cart": [
+      {
+        "carId": "393",
+        "quantity": 1
+      },
+      {
+        "carId": "394",
+        "quantity": 1
+      }
+    ],
     "addresses": []
   },
   {

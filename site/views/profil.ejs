@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <link rel="stylesheet" href=/assets/css/profil.css">
-    <title>Profil</title>
+  <meta charset="UTF-8">
+  <title>Mon Profil</title>
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/profil.css">
 </head>
-<body>
-    <%- include('../partials/header'); %>
-    <div class="profile-container">
-        <div class="profile-photo-section">
-            <div class="profile-photo-wrapper">
-                <img src="<%= user.profilePicture || '/site/assets/img/default-profile.png' %>" alt="Photo de profil" class="profile-photo">
-            </div>
-            <form action="/upload-profile-photo" method="POST" enctype="multipart/form-data" class="upload-form">
-                <input type="file" name="profilePhoto" id="profilePhoto" accept="image/*" capture="environment" style="display: none;">
-                <label for="profilePhoto" class="custom-file-label">Choisir un fichier</label>
-            </form>
-        </div>
-        <div class="profile-info-section">
-            <h2>Personal Information</h2>
-            <form class="profile-info-form" action="/update-profile" method="POST">
-                <div class="form-group">
-                    <label for="email">Mail :</label>
-                    <input type="email" id="email" name="email" value=" Email " required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password :</label>
-                    <input type="password" id="password" name="password" value="<%= user.password %>" required>
-                </div>
-                <div class="form-group">
-                    <label for="gender">Genre :</label>
-                    <select id="gender" name="gender" required>
-                        <option value="" disabled <% if (!user.gender) { selected } %>>--Sélectionnez--</option>
-                        <option value="homme"  if (user.gender = 'homme') { selected } >Homme</option>
-                        <option value="femme" if (user.gender = 'femme') { selected } >Femme</option>
-                    </select>
-                </div>
-                <!-- Vous pouvez ajouter d'autres champs ici si nécessaire -->
-                <button type="submit" class="update-btn">Mettre à jour</button>
-            </form>
-        </div>
-    </div>
-    <%- include('../partials/footer'); %>
-    <script src="/app.js"></script>
 
+<body>
+  <%- include('../partials/header', { connect: true }) %>
+
+  <main class="profil-container">
+    <section class="profil-header">
+      <h1>Bienvenue, <%= user.email %></h1>
+      <a href="/panier" class="btn-panier">Voir mon panier 🛒</a>
+    </section>
+
+    <section id="favoris">
+      <h2>Mes Favoris</h2>
+
+      <% if (favoris && favoris.length > 0) { %>
+        <div class="products-grid">
+          <% favoris.forEach(fav => { %>
+            <div class="card" data-id="<%= fav.id %>">
+              <img src="<%= fav.imageUrl %>" alt="<%= fav.nom %>" class="card-img">
+              <div class="card-info">
+                <h3><%= fav.nom %></h3>
+                <p><%= fav.prix.toFixed(2) %> €</p>
+              </div>
+              <button class="remove-fav" data-id="<%= fav.id %>">Supprimer des favoris ❤️</button>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <p>Vous n'avez aucun favori pour le moment.</p>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    const userIdGlobal = "<%= user.id %>";
+  </script>
+  <script src="/js/profil.js"></script>
 </body>
 </html>
